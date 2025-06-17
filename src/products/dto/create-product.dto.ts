@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Type } from 'class-transformer';
 import { IsNumber, IsString, Min } from 'class-validator';
 
@@ -11,5 +10,5 @@ export class CreateProductDto {
   })
   @Type(() => Number)
   @Min(0)
-  public price: string;
+  public price: number;
 }
