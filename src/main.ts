@@ -1,10 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { envs } from 'config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const logger = new Logger('Main');
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -12,6 +13,6 @@ async function bootstrap() {
     }),
   );
   await app.listen(envs.port);
-  console.log(`Application is running on: http://localhost:${envs.port}`);
+  logger.log(`Application is running on: http://localhost:${envs.port}`);
 }
 bootstrap();
