@@ -21,7 +21,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
-  //await app.listen(envs.port);
+  await app.listen();
 
   //await app.startAllMicroservices();
   logger.log(
